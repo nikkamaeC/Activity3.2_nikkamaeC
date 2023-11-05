@@ -1,9 +1,6 @@
 CREATE DATABASE hero;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> feat/add-column-price
 --1.	Create new branch named "feat/create-tables"
 
 CREATE TABLE IF NOT EXISTS public.class
@@ -163,3 +160,8 @@ VALUES
     --3. Add column price
  ALTER TABLE item_table
  ADD item_price DECIMAL(10,2); 
+
+  --4 Update state and Delete
+     UPDATE heroes
+     SET state = 'inactive'
+     WHERE hero_id = 1;
