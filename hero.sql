@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS public.skills
     class_id integer,
     PRIMARY KEY (skill_id),
 	FOREIGN KEY (class_id) REFERENCES class(class_id)
+    
 );
 
 CREATE TABLE IF NOT EXISTS public.HeroItem 
@@ -66,4 +67,5 @@ CREATE TABLE IF NOT EXISTS public.HeroItem
     item_id INT,
     FOREIGN KEY (hero_id) REFERENCES Hero(hero_id),
     FOREIGN KEY (item_id) REFERENCES Item(item_id)
+
 );
