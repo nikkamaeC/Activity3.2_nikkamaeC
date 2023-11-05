@@ -166,14 +166,22 @@ VALUES
      SET state = 'inactive'
      WHERE hero_id = 1;
 
-     --5 List the player names
-     SELECT P.player_name, H.hero_name
-    FROM public.player AS P
-    INNER JOIN public.hero AS H ON P.hero_id = H.hero_id
-    WHERE H.is_active = true;
+--5 List player names
+SELECT P.player_name, H.hero_name
+FROM public.player AS P
+INNER JOIN public.hero AS H ON P.hero_id = H.hero_id
+WHERE H.is_active = true;
 
-     --6 List of heroes classified as archers
+--6 List heroes classified as archers
 SELECT H.hero_name
 FROM public.hero AS H
 INNER JOIN public.class AS C ON H.class_id = C.class_id
 WHERE C.class_name = 'Skilled Archers' OR C.class_name = 'Range Archers';
+
+-- 7 Retrieve the average player level for each class, arranged in descending order from the highest level to the lowest
+SELECT c.class_name, AVG(p.player_level) AS average_level
+FROM class c
+LEFT JOIN hero h ON c.class_id = h.class_id
+LEFT JOIN player p ON h.hero_id = p.hero_id
+GROUP BY c.class_name
+ORDER BY average_level DESC;
