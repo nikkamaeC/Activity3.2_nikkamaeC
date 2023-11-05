@@ -166,6 +166,12 @@ VALUES
      SET state = 'inactive'
      WHERE hero_id = 1;
 
+     --5 List the player names
+     SELECT P.player_name, H.hero_name
+    FROM public.player AS P
+    INNER JOIN public.hero AS H ON P.hero_id = H.hero_id
+    WHERE H.is_active = true;
+
      --6 List of heroes classified as archers
 SELECT H.hero_name
 FROM public.hero AS H
